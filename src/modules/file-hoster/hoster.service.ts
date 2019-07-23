@@ -9,7 +9,7 @@ export class HosterService {
 
   constructor(private readonly config: ConfigService,
               private readonly files: FilesService) {
-    this.request = require('request-promise');
+    this.request = require('request');
   }
 
   async upload(file: string): Promise<string> {
@@ -17,6 +17,7 @@ export class HosterService {
 
     try {
       await this.uploadFile(file);
+      this.logger.debug(`Uploaded file: ${file}`);
       return `${this.config.getCdnUrl()}${file}`;
     } catch (e) {
       this.logger.error(e.stack);

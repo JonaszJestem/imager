@@ -14,6 +14,7 @@ export class ExtractorService {
 
   async from(url: string): Promise<string> {
     const { content, extension } = await this.downloadMainImage(url);
+
     return await this.files.saveToTemporaryFile(content, extension);
   }
 
@@ -21,7 +22,7 @@ export class ExtractorService {
     try {
       const { data: { ogImage: { url: imageUrl } } } = await this.og({ url });
       this.logger.debug(`Downloading image ${imageUrl}`);
-      const content = await this.request({ uri: imageUrl });
+      const content = await this.request({ uri: imageUrl, encoding: null });
 
       return {
         content,

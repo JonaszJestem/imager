@@ -17,7 +17,7 @@ export class FilesService {
     this.logger.debug(`Saving ${fileName}`);
 
     try {
-      await this.fs.writeFile(fileName, file);
+      await this.fs.writeFile(fileName, file, 'binary');
     } catch (e) {
       this.logger.error(`Could not write file ${fileName}`);
       throw new InternalServerErrorException('Cannot proccess your image');
