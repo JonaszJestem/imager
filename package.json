@@ -27,7 +27,7 @@
     "rxjs": "^6.3.3",
     "open-graph-scraper": "^3.6.2",
     "request-promise": "^4.2.4",
-    "class-validator": "^0.9.1",
+    "class-validator": "^0.14.0",
     "class-transformer": "^0.2.3"
 
   },
